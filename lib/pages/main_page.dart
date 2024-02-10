@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_10hr_tutorial/pages/home_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -16,9 +17,7 @@ class _MainPageState extends State<MainPage> {
       appBar: AppBar(
         title: const Text("Bottom Navigation"),
       ),
-      body: const Center(
-        child: Text("Center Text"),
-      ),
+      body: pages[currentIndex], //call pages the current index now
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(
@@ -34,7 +33,6 @@ class _MainPageState extends State<MainPage> {
             label: ("Settings"),
           ),
         ],
-
         onTap: (index) => {
           setState(() {
             currentIndex = index; //change variable to the tapped index
@@ -44,7 +42,26 @@ class _MainPageState extends State<MainPage> {
         showSelectedLabels: false, //won't show label on selected icon
         showUnselectedLabels: false, //won't show label on unselected icon
         backgroundColor: Colors.yellow,
+        type: BottomNavigationBarType.fixed, //the icons stay in place
       ),
     );
   }
+
+  // okay to now change the page when you click
+  final pages = [
+    const HomePage(),
+    const Center(
+      child: Text(
+        "Favorites",
+        style: TextStyle(fontSize: 20, color: Colors.white),
+      ),
+    ),
+    const Center(
+      child: Text(
+        "Settings",
+        style: TextStyle(fontSize: 20, color: Colors.white),
+      ),
+    ),
+    //add more pages here in order
+  ];
 }
