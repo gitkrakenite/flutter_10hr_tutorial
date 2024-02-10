@@ -81,7 +81,8 @@ class LoginPage extends StatelessWidget {
                   height: 48,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.of(context).pushNamed("/home");
+                      //Navigator.of(context).pushNamed("/home"); // allows back arrow in home screen
+                      Navigator.of(context).pushReplacementNamed("/home");
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.yellow[200],
