@@ -18,16 +18,16 @@ class MyHomeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-          fontFamily: "Urbanist",
-          scaffoldBackgroundColor: AppColors.background),
+        fontFamily: "Urbanist",
+        scaffoldBackgroundColor: AppColors.background,
+      ),
       debugShowCheckedModeBanner: false,
-      // routes: {
-      //   '/': (context) => const LoginPage(),
-      //   '/home': (context) => const HomePage(),
-      //   '/main': (context) => const MainPage(),
-      // },
-      // initialRoute: "/",
-      home: Tester(),
+      routes: {
+        '/': (context) => const LoginPage(),
+        '/home': (context) => const HomePage(),
+        '/main': (context) => const MainPage(),
+      },
+      initialRoute: "/",
     );
   }
 }
