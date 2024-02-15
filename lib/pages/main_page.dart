@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_10hr_tutorial/pages/home_page.dart';
+import 'package:flutter_10hr_tutorial/pages/profile_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -14,9 +15,6 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Bottom Navigation"),
-      ),
       body: pages[currentIndex], //call pages the current index now
       bottomNavigationBar: BottomNavigationBar(
         items: const [
@@ -29,8 +27,12 @@ class _MainPageState extends State<MainPage> {
             label: ("Favorite"),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: ("Settings"),
+            icon: Icon(Icons.message_outlined),
+            label: ("Message"),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: ("profile"),
           ),
         ],
         onTap: (index) => {
@@ -42,6 +44,8 @@ class _MainPageState extends State<MainPage> {
         showSelectedLabels: false, //won't show label on selected icon
         showUnselectedLabels: false, //won't show label on unselected icon
         backgroundColor: Colors.yellow,
+        unselectedItemColor: Colors.grey,
+        selectedItemColor: Colors.red,
         type: BottomNavigationBarType.fixed, //the icons stay in place
       ),
     );
@@ -58,10 +62,11 @@ class _MainPageState extends State<MainPage> {
     ),
     const Center(
       child: Text(
-        "Settings",
+        "Messages",
         style: TextStyle(fontSize: 20, color: Colors.white),
       ),
     ),
+    const ProfilePage()
     //add more pages here in order
   ];
 }

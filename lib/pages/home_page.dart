@@ -1,54 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_10hr_tutorial/components/app_bar.dart';
+import 'package:flutter_10hr_tutorial/components/post_item.dart';
 import 'package:flutter_10hr_tutorial/styles/app_colors.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColors.background,
-        elevation: 0,
-        title: const Text(
-          "PizzaHut",
-          style: TextStyle(color: Colors.white),
-        ),
-        actions: const [
-          Icon(Icons.location_on_outlined, color: Colors.white),
-        ],
-      ),
-      body: ListView(
-        children: const [
-          SingleUser(),
-        ],
-      ),
-    );
-  }
-}
-
-class SingleUser extends StatelessWidget {
-  const SingleUser({
+  const HomePage({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Image.asset(
-          "assets/images/lucy.jpg",
-          height: 40,
-          width: 40,
-        ),
-        const SizedBox(
-          width: 16,
-        ),
-        const Text(
-          "Sarah Doe",
-          style: TextStyle(color: Colors.white),
-        )
-      ],
+    return Scaffold(
+      appBar: ToolWidget(
+        title: "Flutter Tutorial",
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.location_city),
+          )
+        ],
+      ),
+      body: ListView.separated(
+          itemBuilder: (context, index) {
+            return PostItem();
+          },
+          separatorBuilder: (BuildContext context, int index) {
+            return const SizedBox(
+              height: 24,
+            );
+          },
+          itemCount: 30),
     );
+  }
+
+  List<Widget> mockUsersFromServer() {
+    List<Widget> users = [];
+    for (var i = 0; i < 1000; i++) {
+      users.add(PostItem());
+    }
+    return users;
   }
 }
