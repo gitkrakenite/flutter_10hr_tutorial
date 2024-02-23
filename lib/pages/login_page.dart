@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_10hr_tutorial/config/app_routes.dart';
 import 'package:flutter_10hr_tutorial/pages/home_page.dart';
 
 class LoginPage extends StatelessWidget {
@@ -82,7 +83,8 @@ class LoginPage extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: () {
                       //Navigator.of(context).pushNamed("/home"); // allows back arrow in home screen
-                      Navigator.of(context).pushReplacementNamed("/main");
+                      Navigator.of(context)
+                          .pushReplacementNamed(AppRoutes.main);
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.yellow[200],

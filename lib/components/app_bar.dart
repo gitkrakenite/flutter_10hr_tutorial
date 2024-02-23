@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_10hr_tutorial/styles/app_colors.dart';
+import 'package:flutter_10hr_tutorial/styles/app_text.dart';
 
 class ToolWidget extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -13,9 +14,9 @@ class ToolWidget extends StatelessWidget implements PreferredSizeWidget {
       appBar: AppBar(
         backgroundColor: AppColors.background,
         elevation: 0,
-        title: const Text(
-          "PizzaHut",
-          style: TextStyle(color: Colors.white),
+        title: Text(
+          title,
+          style: AppText.header1,
         ),
         actions: actions,
       ),

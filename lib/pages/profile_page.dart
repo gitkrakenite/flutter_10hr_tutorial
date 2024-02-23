@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_10hr_tutorial/components/app_bar.dart';
+import 'package:flutter_10hr_tutorial/components/user_avatar.dart';
+import 'package:flutter_10hr_tutorial/config/app_routes.dart';
 import 'package:flutter_10hr_tutorial/styles/app_text.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -7,12 +10,33 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: ToolWidget(
+        title: "Profile",
+        actions: [
+          PopupMenuButton(
+            icon: const Icon(Icons.more_vert_outlined),
+            itemBuilder: (context) {
+              return [
+                PopupMenuItem(
+                  child: Text("Edit"),
+                  onTap: () {
+                    Navigator.of(context).pushNamed(AppRoutes.editProfile);
+                  },
+                ),
+                PopupMenuItem(
+                  child: Text("Logout"),
+                  onTap: () {
+                    print("Logout Tapped");
+                  },
+                ),
+              ];
+            },
+          )
+        ],
+      ),
       body: Column(
         children: [
-          Image.network(
-              "https://images.pexels.com/photos/1308886/pexels-photo-1308886.jpeg?auto=compress&cs=tinysrgb&w=600",
-              width: 90,
-              height: 90),
+          UserAvatar(size: 90.0),
           const SizedBox(
             height: 24,
           ),

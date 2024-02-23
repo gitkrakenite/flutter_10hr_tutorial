@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_10hr_tutorial/components/app_bar.dart';
 import 'package:flutter_10hr_tutorial/components/post_item.dart';
-import 'package:flutter_10hr_tutorial/styles/app_colors.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_10hr_tutorial/config/app_routes.dart';
+import 'package:flutter_10hr_tutorial/pages/edit_profile_page.dart';
 import 'package:flutter_10hr_tutorial/pages/home_page.dart';
 import 'package:flutter_10hr_tutorial/pages/login_page.dart';
 import 'package:flutter_10hr_tutorial/pages/main_page.dart';
@@ -23,13 +25,8 @@ class MyHomeWidget extends StatelessWidget {
         brightness: Brightness.dark, //dark theme
       ),
       debugShowCheckedModeBanner: false,
-      routes: {
-        '/': (context) => const LoginPage(),
-        '/home': (context) => const HomePage(),
-        '/main': (context) => const MainPage(),
-        '/profile': (context) => const ProfilePage(),
-      },
-      initialRoute: "/",
+      initialRoute: AppRoutes.login,
+      routes: AppRoutes.pages,
     );
   }
 }
